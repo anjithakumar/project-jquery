@@ -1,0 +1,127 @@
+<html>
+<head>
+<title>TODOLIST</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style>
+
+body {
+
+background: #dfdfdf;
+}
+
+
+
+form {
+display: inline-block;
+}
+
+input{
+padding:8px 10px;font-size:18px;box-sizing: border-box;width:200px;border-radius:5px;border-width:1px;border-style:solid;border-color:grey;
+}
+
+#button{
+display: inline-block;
+background-color:green;
+color:#ffffff;
+border-radius: 5px;
+text-align:center;
+margin-top:2px;
+padding: 8px 10px;
+border-style:solid;
+
+}
+
+#button:hover{
+cursor: pointer;
+opacity: .8;}
+
+ol {padding-left: 20px;}
+
+ol li {padding: 15px;color:#000;}
+
+ol li:nth-child(even){background: #dfdfdf;
+}
+ol li:nth-child(odd){background: #CCFF99;
+}
+
+
+.strike{text-decoration: line-through;}
+.remove {
+
+	  float: right;
+
+	  cursor: pointer;
+
+	}
+  .del{display: inline-block;
+background-color:green;
+color:#ffffff;
+border-radius: 5px;
+text-align:center;
+margin-bottom:2px;
+padding: 8px 10px;
+border-style:solid;
+margin-left: 55px;
+
+}
+
+li:hover{
+  cursor: pointer;
+ }
+
+</style>
+<script>
+    $(document).ready(
+    function(){
+        $('#button').click(
+            function(){
+                var toAdd = $('input[name=ListItem]').val();
+                var del="<button class='delete btn btn-warning,del,btn-group pull-right'>Delete</button>";
+                 $('ol').append('<li>' + toAdd   + del + '</li>');
+
+            });
+        $(".list_of_items").on("click", "button.delete", function(){
+
+  $(this).closest("li").remove();
+
+  });
+       
+       
+      
+      
+      
+      $('input').focus(function() {
+        $(this).val('');
+      });
+      
+      $('ol').sortable();  
+      
+    }
+);</script>
+</head>
+
+	<body style="background-image: url(green.jpg");">
+    
+    <div class="container">
+    	<div class="row">
+    		<div class="col-sm-4 col-xs-0"></div>
+    		<div class="col-sm-4 col-xs-12">
+		<h1 style="font-weight: bold;padding-left:19%;margin-top:20%;font-size:44px;color:white;">To Do List</h1>
+    <p><em></em></p><br><br>
+       
+		<form name="todoList">
+			<label style="color:white;font-weight: bold;margin-top:20%;font-size:15px;">Enter data:</label>
+			<input style="font-weight:bold;" type="text" name="ListItem" autofocus="autofocus"/>
+		</form>&nbsp;&nbsp;
+    
+		<div id="button">Add</div>
+		<br/>
+		<ol style="font-weight: bold;font-size: 20px;" class="list-group list_of_items"></ol></div>
+		<div class="col-sm-4 col-xs-0"></div>
+      
+      
+    
+    </div>
+	</body>
+	</html>
